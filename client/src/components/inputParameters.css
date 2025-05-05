@@ -1,0 +1,43 @@
+/* Style the slider to be black */
+.custom-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: black;
+  cursor: pointer;
+  border: none;
+  margin-top: -6px; /* to align thumb vertically */
+}
+
+.custom-slider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background: black;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+
+.custom-slider::-ms-thumb {
+  background: red;
+}
+
+.custom-slider::-webkit-slider-runnable-track {
+  background-color: rgb(216, 216, 216); /* light black track */
+}
+
+.custom-slider::-moz-range-track {
+  background-color: red;
+}
+
+.custom-slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: #dcdee1; /* light gray */
+  outline: none;
+  margin-top: 8px;
+}

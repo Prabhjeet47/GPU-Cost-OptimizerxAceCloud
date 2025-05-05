@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import InputParameters from "./components/inputParameters";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
+      <div className="text-center py-4 px-2 bg-white">
+        <h1 className="fw-bold fs-2 fs-md-4 fs-lg-5 text-dark">
+          GPU Cost Optimizer & Recommender
+        </h1>
+        <p className="text-secondary fs-8 fs-md-6 fs-lg-6">
+          Find the most cost-effective GPU instances for your machine learning
+          workloads
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      </div>
+      <InputParameters />
     </div>
   );
 }
