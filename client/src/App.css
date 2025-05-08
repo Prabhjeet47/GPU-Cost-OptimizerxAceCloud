@@ -1,0 +1,18 @@
+.bottom-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+@media screen and (max-width: 1017px) {
+  .bottom-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  * {
+    font-size: small;
+  }
+}
