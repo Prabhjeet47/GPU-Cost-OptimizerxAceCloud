@@ -12,20 +12,17 @@ const Left = () => {
   const onFinish = async (values) => {
     console.log("Form values: ", values);
     try {
-      // Make a POST request to your backend API here
       const response = await axios.post(
-        "http://your-backend-url/api/recommendations",
+        "http://localhost:8001/api/getRecommendations",
         values
       );
       console.log(response.data);
-      // Handle the response from the backend
     } catch (error) {
       console.error("Error submitting form: ", error);
-      // Handle errors here (e.g., show error message)
     }
   };
 
-  console.log(country, region, os);
+  // console.log(country, region, os);
 
   return (
     <div style={styles.container}>
@@ -43,8 +40,8 @@ const Left = () => {
             placeholder="Select your country"
             onChange={(value) => setCountry(value)}
           >
-            <Select.Option value="India">India</Select.Option>
-            <Select.Option value="USA">USA</Select.Option>
+            <Select.Option value="india">India</Select.Option>
+            <Select.Option value="usa">USA</Select.Option>
           </Select>
         </Form.Item>
 
@@ -57,8 +54,8 @@ const Left = () => {
             placeholder="Select your region"
             onChange={(value) => setRegion(value)}
           >
-            <Select.Option value="Noida">Noida</Select.Option>
-            <Select.Option value="Delhi">Delhi</Select.Option>
+            <Select.Option value="noida">Noida</Select.Option>
+            <Select.Option value="delhi">Delhi</Select.Option>
           </Select>
         </Form.Item>
 
@@ -99,8 +96,8 @@ const Left = () => {
             placeholder="Select your operating system"
             onChange={(value) => setOs(value)}
           >
-            <Select.Option value="Windows">Windows</Select.Option>
-            <Select.Option value="Linux">Linux</Select.Option>
+            <Select.Option value="windows">Windows</Select.Option>
+            <Select.Option value="linux">Linux</Select.Option>
           </Select>
         </Form.Item>
 
@@ -120,9 +117,8 @@ const styles = {
     margin: "20px auto",
     padding: "20px",
     borderRadius: "8px",
-    boxShadow: "2px 3px 2px rgba(0, 0, 0, 0.5)",
 
-    backgroundColor: "#e0e0e0",
+    backgroundColor: "#e0e0ee",
   },
   button: {
     width: "100%",

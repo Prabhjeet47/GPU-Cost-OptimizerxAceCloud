@@ -22,8 +22,7 @@ const Right = () => {
         margin: "20px auto",
         padding: "20px",
         borderRadius: "8px",
-        boxShadow: "2px 3px 2px rgba(0, 0, 0, 0.5)",
-        backgroundColor: "#e0e0e0",
+        backgroundColor: "#e0e0ee",
       }}
     >
       <Title level={3}>GPU Recommendations</Title>
