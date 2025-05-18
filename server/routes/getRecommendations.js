@@ -1,8 +1,5 @@
-const express = require("express");
+import express from "express";
+import handleGetRecommendations from "../controllers/handleGetRecommendations.js";
 const router = express.Router();
 
-router.post("/", (req, res) => {
-  console.log(req.body);
-});
-
-module.exports = router;
+export default router.post("/", handleGetRecommendations);

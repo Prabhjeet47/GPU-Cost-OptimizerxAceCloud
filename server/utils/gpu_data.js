@@ -1,4 +1,4 @@
-const gpudata = [
+export default gpudata = [
   {
     country: "india",
     operating_system: "windows",
@@ -2870,5 +2870,3 @@ const gpudata = [
     is_public: 1,
   },
 ];
-
-module.exports = gpudata;

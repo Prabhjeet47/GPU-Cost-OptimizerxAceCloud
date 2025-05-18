@@ -46,16 +46,18 @@ const Left = () => {
         </Form.Item>
 
         <Form.Item
-          label="Region"
-          name="region"
-          rules={[{required: true, message: "Please select your region!"}]}
+          label="Operating System"
+          name="os"
+          rules={[
+            {required: true, message: "Please select your operating system!"},
+          ]}
         >
           <Select
-            placeholder="Select your region"
-            onChange={(value) => setRegion(value)}
+            placeholder="Select your operating system"
+            onChange={(value) => setOs(value)}
           >
-            <Select.Option value="noida">Noida</Select.Option>
-            <Select.Option value="delhi">Delhi</Select.Option>
+            <Select.Option value="windows">Windows</Select.Option>
+            <Select.Option value="linux">Linux</Select.Option>
           </Select>
         </Form.Item>
 
@@ -76,6 +78,20 @@ const Left = () => {
         </Form.Item>
 
         <Form.Item
+          label="Region"
+          name="region"
+          rules={[{required: true, message: "Please select your region!"}]}
+        >
+          <Select
+            placeholder="Select your region"
+            onChange={(value) => setRegion(value)}
+          >
+            <Select.Option value="noida">Noida</Select.Option>
+            <Select.Option value="delhi">Delhi</Select.Option>
+          </Select>
+        </Form.Item>
+
+        <Form.Item
           label="Monthly Budget ($)"
           name="budget"
           rules={[
@@ -83,22 +99,6 @@ const Left = () => {
           ]}
         >
           <Slider min={100} max={5000} defaultValue={1100} />
-        </Form.Item>
-
-        <Form.Item
-          label="Operating System"
-          name="os"
-          rules={[
-            {required: true, message: "Please select your operating system!"},
-          ]}
-        >
-          <Select
-            placeholder="Select your operating system"
-            onChange={(value) => setOs(value)}
-          >
-            <Select.Option value="windows">Windows</Select.Option>
-            <Select.Option value="linux">Linux</Select.Option>
-          </Select>
         </Form.Item>
 
         <Form.Item>

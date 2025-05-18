@@ -1,7 +1,9 @@
-const redis = require("redis");
-require("dotenv").config();
+import redis from "redis";
+import dotenv from "dotenv";
 
-async function redisWrapperFunction() {
+dotenv.config();
+
+export default async function redisWrapperFunction() {
   const client = redis.createClient({
     url: process.env.REDIS_URL,
   });
@@ -17,5 +19,3 @@ async function redisWrapperFunction() {
 
   return client;
 }
-
-module.exports = redisWrapperFunction;
