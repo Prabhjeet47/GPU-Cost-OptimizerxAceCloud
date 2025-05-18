@@ -66,7 +66,7 @@ const Left = () => {
           name="vcpus"
           rules={[{required: true, message: "Please input number of vCPUs!"}]}
         >
-          <Slider min={1} max={16} defaultValue={4} />
+          <Slider min={1} max={208} defaultValue={64} />
         </Form.Item>
 
         <Form.Item
@@ -74,7 +74,7 @@ const Left = () => {
           name="ram"
           rules={[{required: true, message: "Please input RAM size!"}]}
         >
-          <Slider min={4} max={64} defaultValue={8} />
+          <Slider min={1} max={2000} defaultValue={64} />
         </Form.Item>
 
         <Form.Item
@@ -86,8 +86,7 @@ const Left = () => {
             placeholder="Select your region"
             onChange={(value) => setRegion(value)}
           >
-            <Select.Option value="noida">Noida</Select.Option>
-            <Select.Option value="delhi">Delhi</Select.Option>
+            <Select.Option value="mumbai">Mumbai</Select.Option>
           </Select>
         </Form.Item>
 
@@ -98,7 +97,7 @@ const Left = () => {
             {required: true, message: "Please input your monthly budget!"},
           ]}
         >
-          <Slider min={100} max={5000} defaultValue={1100} />
+          <Slider min={100} max={1700000} defaultValue={10000} />
         </Form.Item>
 
         <Form.Item>

@@ -1,8 +1,7 @@
 import createEmbeddings from "../aiEngine/createEmbedding.js";
+import bestGpuScoreGenerator from "../aiEngine/bestGpuScoreGenerator.js";
 
 export default async function handleGetRecommendations(req, res) {
-  console.log(req.body);
-
   if (
     !req.body.country ||
     !req.body.os ||
@@ -19,8 +18,15 @@ export default async function handleGetRecommendations(req, res) {
 
     const inputEmbedding = await createEmbeddings(text);
 
-    console.log(inputEmbedding);
+    const bestGpu = await bestGpuScoreGenerator(inputEmbedding)
+      .then((ans) => {
+        console.log(ans);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   } catch (err) {
+    console.log(err);
     return res.status(400).json({msg: "err"});
   }
 

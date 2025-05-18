@@ -1,4 +1,5 @@
-//run once script for generating GPU data embeddings (vector)
+//run once script for generating GPU data embeddings (vector) and create vector for
+//storing all vectors in single hash in redis
 import {pipeline} from "@xenova/transformers";
 import redisWrapperFunction from "./redis.js";
 import gpudata from "../utils/gpu_data.js";
@@ -23,17 +24,26 @@ async function createEmbeddings(text) {
 
 async function main() {
   const client = await redisWrapperFunction();
+
   let count = 1;
+  const embeddingHash = {};
+
   for (let i = 0; i < gpudata.length; i++) {
     const gputext = text(gpudata[i]);
     const embedding = await createEmbeddings(gputext);
+
     await client.HSET(`GPU-Data:gpus:gpu-${count}`, {
       gpu: JSON.stringify(gpudata[i]),
       text: gputext,
       embedding: JSON.stringify(embedding),
     });
+
+    embeddingHash[`embedding-${count}`] = JSON.stringify(embedding);
+
     count++;
   }
+
+  await client.HSET(`GPU-Data:gpuEmbeddings`, embeddingHash);
 
   await client.quit();
   console.log("redis task done");

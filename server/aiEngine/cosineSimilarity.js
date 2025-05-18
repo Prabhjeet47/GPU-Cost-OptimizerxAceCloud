@@ -1,6 +1,13 @@
-export default function cosineSimilarity(vec1, vec2) {
-  const dot = vec1.reduce((acc, val, i) => acc + val * vec2[i], 0);
-  const normA = Math.sqrt(vec1.reduce((acc, val) => acc + val * val, 0));
-  const normB = Math.sqrt(vec2.reduce((acc, val) => acc + val * val, 0));
-  return dot / (normA * normB);
+export default function cosineSimilarity(a, b) {
+  let dot = 0.0;
+  let normA = 0.0;
+  let normB = 0.0;
+
+  for (let i = 0; i < a.length; i++) {
+    dot += a[i] * b[i];
+    normA += a[i] * a[i];
+    normB += b[i] * b[i];
+  }
+
+  return dot / (Math.sqrt(normA) * Math.sqrt(normB));
 }
