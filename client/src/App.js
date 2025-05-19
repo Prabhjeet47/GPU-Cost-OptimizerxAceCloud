@@ -13,7 +13,7 @@ function App() {
     try {
       setLoading(true);
       const response = await axios.post(
-        "gpu-cost-optimizerxacecloud-production.up.railway.app/api/getRecommendations",
+        "https://gpu-cost-optimizerxacecloud-production.up.railway.app/api/getRecommendations",
         formData
       );
       const formattedData = Array.isArray(response.data)
