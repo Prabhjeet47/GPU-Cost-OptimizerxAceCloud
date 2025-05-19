@@ -18,9 +18,9 @@ export default async function handleGetRecommendations(req, res) {
 
     const inputEmbedding = await createEmbeddings(text);
 
-    const bestGpu = await bestGpuScoreGenerator(inputEmbedding)
+    await bestGpuScoreGenerator(inputEmbedding)
       .then((ans) => {
-        console.log(ans);
+        return res.json({gpu: [ans]});
       })
       .catch((err) => {
         console.log(err);
@@ -29,6 +29,4 @@ export default async function handleGetRecommendations(req, res) {
     console.log(err);
     return res.status(400).json({msg: "err"});
   }
-
-  return res.send("done");
 }

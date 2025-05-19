@@ -3,26 +3,17 @@ import axios from "axios"; // Import Axios
 import {Form, Button, Slider, Select} from "antd";
 import "../../node_modules/antd/dist/reset.css";
 
-const Left = () => {
+const Left = (props) => {
   const [form] = Form.useForm();
   const [country, setCountry] = useState("");
   const [region, setRegion] = useState("");
   const [os, setOs] = useState("");
 
   const onFinish = async (values) => {
-    console.log("Form values: ", values);
-    try {
-      const response = await axios.post(
-        "http://localhost:8001/api/getRecommendations",
-        values
-      );
-      console.log(response.data);
-    } catch (error) {
-      console.error("Error submitting form: ", error);
+    if (typeof props.onSubmit === "function") {
+      props.onSubmit(values); // Send data to App.js
     }
   };
-
-  // console.log(country, region, os);
 
   return (
     <div style={styles.container}>
