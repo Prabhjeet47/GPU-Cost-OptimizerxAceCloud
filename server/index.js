@@ -15,6 +15,9 @@ app.use(express.urlencoded({extended: true}));
 
 //use routes
 app.use("/api/getRecommendations", getRecommendationRouter);
+app.get("/ping", (req, res) => {
+  return res.send("pong"); //ping request for uptimerobot every 5min to keep server warm
+});
 
 app.listen(port, "0.0.0.0", () => {
   console.log(`server running on http://localhost:${port}`);
