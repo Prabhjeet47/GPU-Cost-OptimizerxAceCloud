@@ -1,7 +1,7 @@
-import {Card, Row, Col, Spin, Empty, Tag, Button, Modal} from "antd";
+import {Card, Row, Col, Spin, Empty, Tag, Button, Alert, Modal} from "antd";
 import {useState} from "react";
 
-const Right = ({gpuData, loading}) => {
+const Right = ({gpuData, loading, errorMsg}) => {
   const [selectedGpu, setSelectedGpu] = useState(null);
   const [modalVisible, setModalVisible] = useState(false);
 
@@ -18,6 +18,12 @@ const Right = ({gpuData, loading}) => {
   return (
     <div style={styles.container}>
       <h2 style={styles.title}>🚀 Recommended GPU Instances</h2>
+      {errorMsg && (
+        <Card style={{marginBottom: 20, backgroundColor: "#fff1f0"}}>
+          <Alert message="Error" description={errorMsg} type="error" showIcon />
+        </Card>
+      )}
+
       {loading ? (
         <div style={styles.centered}>
           <Spin size="large" tip="Fetching GPU magic..." />

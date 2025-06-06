@@ -4,3 +4,4 @@
 
 #environment variables
 /server/.env
+/client/.env
