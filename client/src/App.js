@@ -19,7 +19,7 @@ function App() {
         formData,
         {
           headers: {
-            Authorization: `Bearer ${process.env.REACT_APP_AUTH_KEY}`,
+            Authorization: `Bearer authorizationkeytobesenttobackend0606`,
           },
         }
       );
