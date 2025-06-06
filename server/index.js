@@ -3,7 +3,7 @@ import cors from "cors";
 import helmet from "helmet";
 import getRecommendationRouter from "./routes/getRecommendations.js";
 import ratelimiter from "./utils/rateLimit.js";
-import authorizationMiddleware from "./middlewares/authorization.js";
+// import authorizationMiddleware from "./middlewares/authorization.js";
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -29,7 +29,7 @@ ratelimiter().then((rlm) => {
     return res.send("pong"); //ping request for uptimerobot every 5min to keep server warm
   });
 
-  app.get("/protected", authorizationMiddleware, (req, res) => {
+  app.get("/protected", (req, res) => {
     console.log("✅access granted");
     return res.json({msg: "✅access granted"});
   });

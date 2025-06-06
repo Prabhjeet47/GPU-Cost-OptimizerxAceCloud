@@ -24,16 +24,16 @@ function App() {
         }
       );
 
-      const authresponse = await axios.get(
-        "https://gpu-cost-optimizerxacecloud.onrender.com/protected",
-        {
-          headers: {
-            Authorization: `Bearer ${process.env.REACT_APP_AUTH_KEY}`,
-          },
-        }
-      );
+      // const authresponse = await axios.get(
+      //   "https://gpu-cost-optimizerxacecloud.onrender.com/protected",
+      //   {
+      //     headers: {
+      //       Authorization: `Bearer ${process.env.REACT_APP_AUTH_KEY}`,
+      //     },
+      //   }
+      // );
 
-      console.log(authresponse);
+      // console.log(authresponse);
 
       const formattedData = Array.isArray(response.data)
         ? response.data
