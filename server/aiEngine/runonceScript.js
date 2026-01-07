@@ -49,4 +49,5 @@ async function main() {
   console.log("redis task done");
 }
 
-main();
+// main();
+export default main;
