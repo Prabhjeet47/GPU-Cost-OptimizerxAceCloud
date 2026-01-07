@@ -3,6 +3,7 @@ import cors from "cors";
 import helmet from "helmet";
 import getRecommendationRouter from "./routes/getRecommendations.js";
 import ratelimiter from "./utils/rateLimit.js";
+import main from "./aiEngine/runonceScript.js"
 // import authorizationMiddleware from "./middlewares/authorization.js";
 import dotenv from "dotenv";
 
@@ -20,6 +21,8 @@ app.use(
 );
 app.use(helmet());
 app.use(express.urlencoded({extended: true}));
+
+main();
 
 //use routes with rate limiting
 ratelimiter().then((rlm) => {
